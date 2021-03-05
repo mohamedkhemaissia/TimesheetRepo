@@ -28,7 +28,7 @@ public class Employe implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int id;
+	private Integer id;
 	
 	private String prenom;
 	
@@ -63,7 +63,16 @@ public class Employe implements Serializable {
 	public Employe() {
 		super();
 	}
-	
+
+	public Employe(Integer id, String prenom, String nom, String email, boolean isActif, Role role) {
+		this.id = id;
+		this.prenom = prenom;
+		this.nom = nom;
+		this.email = email;
+		this.isActif = isActif;
+		this.role = role;
+	}
+
 	public Employe(String nom, String prenom, String email, boolean isActif, Role role) {
 		this.nom = nom;
 		this.prenom = prenom;
@@ -72,7 +81,7 @@ public class Employe implements Serializable {
 		this.role = role;
 	}
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 

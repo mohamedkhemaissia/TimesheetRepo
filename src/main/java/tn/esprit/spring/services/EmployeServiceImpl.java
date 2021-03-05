@@ -31,9 +31,9 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	TimesheetRepository timesheetRepository;
 
-	public int ajouterEmploye(Employe employe) {
+	public Employe ajouterEmploye(Employe employe) {
 		employeRepository.save(employe);
-		return employe.getId();
+		return employe;
 	}
 
 	public void mettreAjourEmailByEmployeId(String email, int employeId) {

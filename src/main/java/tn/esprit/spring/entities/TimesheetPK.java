@@ -12,9 +12,9 @@ public class TimesheetPK implements Serializable {
 
 	private static final long serialVersionUID = 5377539445871317492L;
 
-	private int idMission;
+	private Integer idMission;
 	
-	private int idEmploye;
+	private Integer idEmploye;
 	
 	//Choisir le TemporalType selon le besoin metier
 	@Temporal(TemporalType.DATE)
