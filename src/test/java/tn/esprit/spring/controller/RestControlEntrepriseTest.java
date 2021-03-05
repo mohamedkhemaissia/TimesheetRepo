@@ -45,6 +45,12 @@ class RestControlEntrepriseTest {
                 .content(asJsonString(mocEntreprise))).andExpect(MockMvcResultMatchers.status().isOk());
 
     }
+    @Test
+    public void testDeleteEntrepriseById() throws Exception {
+        Entreprise mocEntreprise =  new Entreprise("SSII Consulting","raisonSocial");
+        mocEntreprise.setId(1);
+        mockMvc.perform(MockMvcRequestBuilders.delete("/deleteEntrepriseById/1")).andExpect(MockMvcResultMatchers.status().isOk());
+    }
     static String asJsonString(Object o){
         try {
             return new ObjectMapper().writeValueAsString(o);

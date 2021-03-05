@@ -20,6 +20,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IEntrepriseService;
@@ -55,6 +56,17 @@ class RestControlEmployeTest {
              .andExpect(MockMvcResultMatchers.jsonPath("$.id", Matchers.is(0)))
              .andExpect(MockMvcResultMatchers.jsonPath("$.nom", Matchers.is("Khemaicia")));
     }
+
+    @Test
+
+
+    public void deleteEmployeById() throws Exception {
+        Employe mocEmploye =  new Employe("kallel", "khaled","Khaled.kallel@ssiiconsulting.tn", true, Role.INGENIEUR);
+        mocEmploye.setId(1);
+        mockMvc.perform(MockMvcRequestBuilders.delete("/deleteEmployeById/1")).andExpect(MockMvcResultMatchers.status().isOk());
+    }
+
+
 
     static String asJsonString(Object o){
         try {

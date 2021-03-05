@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,7 +39,6 @@ public class RestControlEmploye {
 	@Autowired
 	ITimesheetService itimesheetservice;
 
-
 	
 	// http://localhost:8088/SpringMVC/servlet/ajouterEmployer
 	//{"id":1,"nom":"kallel", "prenom":"khaled", "email":"Khaled.kallel@ssiiconsulting.tn", "isActif":true, "role":"INGENIEUR"}
@@ -47,7 +47,9 @@ public class RestControlEmploye {
 	@ResponseBody
 	public Employe ajouterEmploye(@RequestBody Employe employe)
 	{
+
 		iemployeservice.ajouterEmploye(employe);
+
 		return employe;
 	}
 	
